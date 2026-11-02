@@ -191,46 +191,48 @@ const Profile = () => {
           </div>
 
           {/* Action buttons */}
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             <Link
               to="/submit-idea"
               style={{
-                background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                color: 'white',
-                padding: '9px 20px',
-                borderRadius: '50px',
+                background: '#2563eb',
+                color: '#ffffff',
+                padding: '8px 16px',
+                borderRadius: '8px',
                 textDecoration: 'none',
                 fontWeight: 600,
                 fontSize: '0.88rem',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
-                transition: 'opacity 0.2s',
+                whiteSpace: 'nowrap',
+                border: '1px solid #1d4ed8',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
               }}
             >
-              🚀 Submit Idea
+              + Submit Idea
             </Link>
             <button
               onClick={handleLogout}
               style={{
-                background: '#ece8df',
+                background: '#ffffff',
                 color: '#374151',
-                border: '1px solid #ded9ce',
-                padding: '9px 20px',
-                borderRadius: '50px',
+                border: '1px solid #d1d5db',
+                padding: '8px 16px',
+                borderRadius: '8px',
                 fontWeight: 600,
                 fontSize: '0.88rem',
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                transition: 'all 0.2s',
+                whiteSpace: 'nowrap',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#e2ded5'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = '#ece8df'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#f9fafb'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = '#ffffff'; }}
             >
-              🚪 Logout
+              Logout
             </button>
           </div>
 
@@ -414,20 +416,21 @@ const Profile = () => {
                 )}
               </div>
 
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center', width: '100%' }}>
                 <input
                   type="text"
-                  placeholder="e.g. Python, UI/UX"
+                  placeholder="e.g. Python, UI/UX, React"
                   value={newSkill}
                   onChange={(e) => setNewSkill(e.target.value)}
                   style={{
-                    flex: 1,
+                    flex: '1 1 auto',
+                    minWidth: 0,
                     background: '#ffffff',
-                    border: '1px solid #e2ddd5',
-                    borderRadius: '10px',
-                    padding: '10px 14px',
+                    border: '1px solid #d1d5db',
+                    borderRadius: '8px',
+                    padding: '9px 12px',
                     color: '#111827',
-                    fontSize: '0.9rem',
+                    fontSize: '0.88rem',
                     boxSizing: 'border-box',
                     margin: 0,
                   }}
@@ -442,18 +445,24 @@ const Profile = () => {
                   type="button"
                   onClick={handleAddSkill}
                   style={{
-                    background: '#f4efe6',
-                    border: '1px solid #e2ddd5',
-                    color: '#111827',
-                    padding: '0 18px',
-                    borderRadius: '10px',
+                    flexShrink: 0,
+                    width: 'auto',
+                    margin: 0,
+                    background: '#2563eb',
+                    border: '1px solid #1d4ed8',
+                    color: '#ffffff',
+                    padding: '9px 18px',
+                    borderRadius: '8px',
                     fontWeight: 600,
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
                     fontSize: '0.88rem',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                   }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#1d4ed8'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = '#2563eb'; }}
                 >
-                  + Add
+                  Add
                 </button>
               </div>
             </div>
@@ -463,20 +472,25 @@ const Profile = () => {
               disabled={saving}
               style={{
                 width: '100%',
-                padding: '13px',
-                background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '12px',
-                fontWeight: 700,
-                fontSize: '0.95rem',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                padding: '11px 18px',
+                background: '#2563eb',
+                color: '#ffffff',
+                border: '1px solid #1d4ed8',
+                borderRadius: '8px',
+                fontWeight: 600,
+                fontSize: '0.92rem',
+                cursor: saving ? 'not-allowed' : 'pointer',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                 opacity: saving ? 0.7 : 1,
-                transition: 'opacity 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
               }}
+              onMouseEnter={(e) => { if (!saving) e.currentTarget.style.background = '#1d4ed8'; }}
+              onMouseLeave={(e) => { if (!saving) e.currentTarget.style.background = '#2563eb'; }}
             >
-              {saving ? 'Saving Changes...' : 'Save Profile Changes 💾'}
+              {saving ? 'Saving Changes...' : 'Save Profile Changes'}
             </button>
           </form>
 

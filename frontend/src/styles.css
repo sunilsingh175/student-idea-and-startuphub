@@ -177,33 +177,90 @@ input:focus, select:focus, textarea:focus {
 }
 
 button {
-  background: var(--gradient);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 600;
   font-family: 'Inter', sans-serif;
-  transition: all 0.2s ease;
-  margin: 10px 0;
-  width: 100%;
-  letter-spacing: 0.2px;
-  box-shadow: 0 4px 14px rgba(96, 165, 250, 0.3);
-}
-
-button:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+  background: none;
+  box-sizing: border-box;
 }
 
 button:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+}
+
+.btn,
+.btn-primary,
+button.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: 1px solid #1d4ed8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn-primary:hover,
+button.btn-primary:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.btn-secondary,
+button.btn-secondary {
+  background: #ffffff;
+  color: #374151;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+}
+
+.btn-secondary:hover,
+button.btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+form button[type="submit"]:not(.unstyled) {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #1d4ed8;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  width: 100%;
+  margin: 12px 0 0;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+form button[type="submit"]:not(.unstyled):hover {
+  background: #1d4ed8;
 }
 
 /* ─── Hero Section ─────────────────────────────────────────────────────────── */
@@ -234,21 +291,24 @@ button:disabled {
 }
 
 .cta-button {
-  display: inline-block;
-  background: var(--gradient);
-  color: white;
-  padding: 12px 30px;
-  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.35);
+  font-size: 0.92rem;
+  transition: all 0.15s ease;
+  border: 1px solid #1d4ed8;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.45);
+  background: #1d4ed8;
+  color: #ffffff;
 }
 
 /* ─── Guidance Cards ───────────────────────────────────────────────────────── */
@@ -396,23 +456,22 @@ button:disabled {
 }
 
 .like-button {
-  background: #fdf2f4;
-  color: #e11d48;
-  border: 1px solid #fecdd3;
-  padding: 5px 12px;
-  border-radius: 50px;
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 6px 12px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 0.82rem;
   font-weight: 600;
   width: auto;
   margin: 0;
-  transition: all 0.2s ease;
-  box-shadow: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .like-button:hover {
-  background: #ffe4e6;
-  transform: none;
+  background: #f9fafb;
 }
 
 .like-button.liked {
@@ -422,23 +481,24 @@ button:disabled {
 }
 
 .view-details {
-  display: inline-block;
-  background: var(--gradient);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563eb;
   color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 50px;
+  border: 1px solid #1d4ed8;
+  padding: 8px 14px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .view-details:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
+  background: #1d4ed8;
   color: white;
 }
 

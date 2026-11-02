@@ -225,17 +225,20 @@ const IdeaDetail = () => {
                 className={`like-button ${idea.hasLiked ? 'liked' : ''}`}
                 onClick={handleUpvote}
                 style={{
-                  background: idea.hasLiked ? '#e11d48' : '#fff1f2',
-                  color: idea.hasLiked ? '#ffffff' : '#e11d48',
-                  border: '1px solid #fecdd3',
-                  padding: '7px 16px',
-                  borderRadius: '50px',
+                  background: idea.hasLiked ? '#e11d48' : '#ffffff',
+                  color: idea.hasLiked ? '#ffffff' : '#374151',
+                  border: '1px solid ' + (idea.hasLiked ? '#e11d48' : '#d1d5db'),
+                  padding: '7px 14px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
                   fontWeight: 600,
                   fontSize: '0.88rem',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                  margin: 0,
+                  width: 'auto',
                 }}
               >
                 {idea.hasLiked ? '❤️ Liked' : '🤍 Like'}
@@ -249,18 +252,25 @@ const IdeaDetail = () => {
               <button
                 onClick={() => window.open(`https://meet.jit.si/Idea-${id}`, '_blank')}
                 style={{
-                  background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                  color: 'white',
-                  border: 'none',
-                  padding: '9px 20px',
-                  borderRadius: '50px',
+                  background: '#2563eb',
+                  color: '#ffffff',
+                  border: '1px solid #1d4ed8',
+                  padding: '8px 16px',
+                  borderRadius: '8px',
                   fontSize: '0.88rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                  margin: 0,
+                  width: 'auto',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#1d4ed8'}
+                onMouseLeave={(e) => e.currentTarget.style.background = '#2563eb'}
               >
-                📹 Start Video Meeting
+                Start Video Meeting
               </button>
             </div>
           </div>
@@ -313,22 +323,26 @@ const IdeaDetail = () => {
                 margin: 0,
               }}
             />
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
               <button
                 type="submit"
                 style={{
-                  background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '9px 22px',
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
+                  background: '#2563eb',
+                  color: '#ffffff',
+                  border: '1px solid #1d4ed8',
+                  borderRadius: '8px',
+                  padding: '9px 18px',
+                  fontSize: '0.88rem',
+                  fontWeight: 600,
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                  margin: 0,
+                  width: 'auto',
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#1d4ed8'}
+                onMouseLeave={(e) => e.currentTarget.style.background = '#2563eb'}
               >
-                Post Comment 🚀
+                Post Comment
               </button>
             </div>
           </form>

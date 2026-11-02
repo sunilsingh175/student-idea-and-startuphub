@@ -147,14 +147,15 @@ const Contact = () => {
               <button
                 onClick={() => setStatus('idle')}
                 style={{
-                  background: 'linear-gradient(135deg, #60a5fa, #93c5fd)',
+                  background: '#2563eb',
                   color: '#fff',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '10px 28px',
+                  border: '1px solid #1d4ed8',
+                  borderRadius: '8px',
+                  padding: '9px 20px',
                   fontWeight: 600,
-                  fontSize: '0.9rem',
+                  fontSize: '0.88rem',
                   cursor: 'pointer',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                 }}
               >
                 Send Another Message
@@ -266,29 +267,29 @@ const Contact = () => {
                 disabled={status === 'loading'}
                 style={{
                   width: '100%',
-                  background: status === 'loading'
-                    ? '#e8e3d8'
-                    : 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                  color: status === 'loading' ? '#9ca3af' : '#fff',
-                  border: 'none',
-                  borderRadius: '12px',
-                  padding: '14px 28px',
-                  fontSize: '1rem',
-                  fontWeight: 700,
+                  background: status === 'loading' ? '#93c5fd' : '#2563eb',
+                  color: '#ffffff',
+                  border: '1px solid #1d4ed8',
+                  borderRadius: '8px',
+                  padding: '11px 18px',
+                  fontSize: '0.95rem',
+                  fontWeight: 600,
                   cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.15s ease',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
-                  letterSpacing: '0.3px',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                 }}
+                onMouseEnter={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#1d4ed8'; }}
+                onMouseLeave={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#2563eb'; }}
               >
                 {status === 'loading' ? (
                   <>
                     <span style={{
-                      width: '18px', height: '18px',
-                      border: '2.5px solid #9ca3af',
+                      width: '16px', height: '16px',
+                      border: '2px solid #ffffff',
                       borderTopColor: 'transparent',
                       borderRadius: '50%',
                       animation: 'spin 0.8s linear infinite',
@@ -297,7 +298,7 @@ const Contact = () => {
                     Sending...
                   </>
                 ) : (
-                  <>📤 Send Message</>
+                  <>Send Message</>
                 )}
               </button>
             </form>

@@ -170,8 +170,23 @@ const Nav = () => {
               {/* Logout Button */}
               <button
                 onClick={logout}
-                className="nav-logout-btn"
-                title="Log out of your account"
+                style={{
+                  background: '#ffffff',
+                  color: '#374151',
+                  border: '1px solid #d1d5db',
+                  padding: '6px 14px',
+                  borderRadius: '8px',
+                  fontWeight: 600,
+                  fontSize: '0.85rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                  transition: 'all 0.15s',
+                  marginLeft: '4px',
+                  margin: 0,
+                  width: 'auto',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = '#f9fafb'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = '#ffffff'; }}
               >
                 Logout
               </button>
@@ -182,11 +197,15 @@ const Nav = () => {
               <Link
                 to="/register"
                 style={{
-                  background: 'var(--gradient)',
+                  background: '#2563eb',
                   color: 'white',
-                  borderRadius: '50px',
-                  padding: '8px 18px',
+                  borderRadius: '8px',
+                  padding: '8px 16px',
                   fontWeight: 600,
+                  fontSize: '0.88rem',
+                  border: '1px solid #1d4ed8',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                  textDecoration: 'none',
                 }}
               >
                 Get Started

@@ -133,7 +133,7 @@ const Login = () => {
           gap: '6px',
           background: '#f4efe6',
           padding: '4px',
-          borderRadius: '12px',
+          borderRadius: '10px',
           border: '1px solid #e8e3d8',
           marginBottom: '18px',
         }}>
@@ -141,37 +141,41 @@ const Login = () => {
             type="button"
             onClick={() => { setLoginMethod('password'); setErrorMsg(''); setSuccessMsg(''); setOtpSent(false); }}
             style={{
-              background: loginMethod === 'password' ? 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)' : 'transparent',
+              background: loginMethod === 'password' ? '#2563eb' : 'transparent',
               color: loginMethod === 'password' ? '#ffffff' : '#4b5563',
-              border: 'none',
-              padding: '9px',
-              borderRadius: '9px',
+              border: loginMethod === 'password' ? '1px solid #1d4ed8' : '1px solid transparent',
+              padding: '8px 12px',
+              borderRadius: '8px',
               fontSize: '0.86rem',
-              fontWeight: 700,
+              fontWeight: 600,
               cursor: 'pointer',
-              transition: 'all 0.2s',
-              boxShadow: loginMethod === 'password' ? '0 2px 8px rgba(96,165,250,0.3)' : 'none',
+              transition: 'all 0.15s',
+              boxShadow: 'none',
+              width: '100%',
+              margin: 0,
             }}
           >
-            🔑 Password
+            Password
           </button>
           <button
             type="button"
             onClick={() => { setLoginMethod('otp'); setErrorMsg(''); setSuccessMsg(''); }}
             style={{
-              background: loginMethod === 'otp' ? 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)' : 'transparent',
+              background: loginMethod === 'otp' ? '#2563eb' : 'transparent',
               color: loginMethod === 'otp' ? '#ffffff' : '#4b5563',
-              border: 'none',
-              padding: '9px',
-              borderRadius: '9px',
+              border: loginMethod === 'otp' ? '1px solid #1d4ed8' : '1px solid transparent',
+              padding: '8px 12px',
+              borderRadius: '8px',
               fontSize: '0.86rem',
-              fontWeight: 700,
+              fontWeight: 600,
               cursor: 'pointer',
-              transition: 'all 0.2s',
-              boxShadow: loginMethod === 'otp' ? '0 2px 8px rgba(96,165,250,0.3)' : 'none',
+              transition: 'all 0.15s',
+              boxShadow: 'none',
+              width: '100%',
+              margin: 0,
             }}
           >
-            ✉️ Email OTP
+            Email OTP
           </button>
         </div>
 
@@ -254,7 +258,18 @@ const Login = () => {
                   <button
                     type="button"
                     onClick={() => { setLoginMethod('otp'); onSendLoginOTP({ preventDefault: () => {} }); }}
-                    style={{ background: 'none', border: 'none', color: '#2563eb', fontSize: '0.78rem', cursor: 'pointer', padding: 0, fontWeight: 600 }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#2563eb',
+                      fontSize: '0.8rem',
+                      cursor: 'pointer',
+                      padding: 0,
+                      margin: 0,
+                      width: 'auto',
+                      fontWeight: 600,
+                      boxShadow: 'none',
+                    }}
                   >
                     Forgot? Use OTP
                   </button>
@@ -285,20 +300,25 @@ const Login = () => {
                 disabled={loading}
                 style={{
                   width: '100%',
-                  padding: '13px',
-                  fontSize: '0.96rem',
-                  fontWeight: 700,
-                  background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '12px',
+                  padding: '11px 18px',
+                  fontSize: '0.95rem',
+                  fontWeight: 600,
+                  background: '#2563eb',
+                  color: '#ffffff',
+                  border: '1px solid #1d4ed8',
+                  borderRadius: '8px',
                   cursor: loading ? 'not-allowed' : 'pointer',
-                  boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                   opacity: loading ? 0.7 : 1,
-                  transition: 'opacity 0.2s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '16px 0 0',
                 }}
+                onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = '#1d4ed8'; }}
+                onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = '#2563eb'; }}
               >
-                {loading ? 'Signing In...' : 'Sign In 🚀'}
+                {loading ? 'Signing In...' : 'Sign In'}
               </button>
             </form>
           ) : (
@@ -365,20 +385,25 @@ const Login = () => {
                 disabled={loading || (otpSent && otp.length < 6)}
                 style={{
                   width: '100%',
-                  padding: '13px',
-                  fontSize: '0.96rem',
-                  fontWeight: 700,
-                  background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '12px',
+                  padding: '11px 18px',
+                  fontSize: '0.95rem',
+                  fontWeight: 600,
+                  background: '#2563eb',
+                  color: '#ffffff',
+                  border: '1px solid #1d4ed8',
+                  borderRadius: '8px',
                   cursor: loading || (otpSent && otp.length < 6) ? 'not-allowed' : 'pointer',
-                  boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                   opacity: loading || (otpSent && otp.length < 6) ? 0.6 : 1,
-                  transition: 'opacity 0.2s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '16px 0 0',
                 }}
+                onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = '#1d4ed8'; }}
+                onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = '#2563eb'; }}
               >
-                {loading ? 'Processing...' : otpSent ? 'Verify OTP & Login 🚀' : 'Send Login OTP ✉️'}
+                {loading ? 'Processing...' : otpSent ? 'Verify OTP & Login' : 'Send Login OTP'}
               </button>
 
               {otpSent && (

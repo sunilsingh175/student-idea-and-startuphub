@@ -204,21 +204,25 @@ const SubmitIdea = () => {
               disabled={loading}
               style={{
                 width: '100%',
-                background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '12px',
-                padding: '13px',
-                fontSize: '0.98rem',
-                fontWeight: 700,
+                background: '#2563eb',
+                color: '#ffffff',
+                border: '1px solid #1d4ed8',
+                borderRadius: '8px',
+                padding: '11px 18px',
+                fontSize: '0.95rem',
+                fontWeight: 600,
                 cursor: loading ? 'not-allowed' : 'pointer',
-                boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
-                marginTop: '4px',
-                transition: 'opacity 0.2s',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                marginTop: '8px',
                 opacity: loading ? 0.7 : 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
+              onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = '#1d4ed8'; }}
+              onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = '#2563eb'; }}
             >
-              {loading ? 'Submitting...' : '🚀 Submit Idea'}
+              {loading ? 'Submitting...' : 'Submit Idea'}
             </button>
           </form>
         </div>

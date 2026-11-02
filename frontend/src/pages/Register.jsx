@@ -233,37 +233,41 @@ const Register = () => {
                       type="button"
                       onClick={() => setFormData({ ...formData, role: 'student' })}
                       style={{
-                        background: role === 'student' ? 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)' : '#f4efe6',
-                        border: '1px solid ' + (role === 'student' ? 'transparent' : '#e8e3d8'),
-                        color: role === 'student' ? '#ffffff' : '#4b5563',
-                        padding: '11px',
-                        borderRadius: '10px',
-                        fontWeight: 700,
+                        background: role === 'student' ? '#2563eb' : '#ffffff',
+                        border: '1px solid ' + (role === 'student' ? '#1d4ed8' : '#d1d5db'),
+                        color: role === 'student' ? '#ffffff' : '#374151',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        fontWeight: 600,
                         fontSize: '0.88rem',
                         cursor: 'pointer',
-                        transition: 'all 0.2s',
-                        boxShadow: role === 'student' ? '0 2px 8px rgba(96,165,250,0.3)' : 'none',
+                        transition: 'all 0.15s',
+                        boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                        width: '100%',
+                        margin: 0,
                       }}
                     >
-                      🎓 Student
+                      Student
                     </button>
                     <button
                       type="button"
                       onClick={() => setFormData({ ...formData, role: 'mentor' })}
                       style={{
-                        background: role === 'mentor' ? 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)' : '#f4efe6',
-                        border: '1px solid ' + (role === 'mentor' ? 'transparent' : '#e8e3d8'),
-                        color: role === 'mentor' ? '#ffffff' : '#4b5563',
-                        padding: '11px',
-                        borderRadius: '10px',
-                        fontWeight: 700,
+                        background: role === 'mentor' ? '#2563eb' : '#ffffff',
+                        border: '1px solid ' + (role === 'mentor' ? '#1d4ed8' : '#d1d5db'),
+                        color: role === 'mentor' ? '#ffffff' : '#374151',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        fontWeight: 600,
                         fontSize: '0.88rem',
                         cursor: 'pointer',
-                        transition: 'all 0.2s',
-                        boxShadow: role === 'mentor' ? '0 2px 8px rgba(96,165,250,0.3)' : 'none',
+                        transition: 'all 0.15s',
+                        boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                        width: '100%',
+                        margin: 0,
                       }}
                     >
-                      💡 Mentor
+                      Mentor
                     </button>
                   </div>
                 </div>
@@ -273,24 +277,25 @@ const Register = () => {
                   disabled={loading}
                   style={{
                     width: '100%',
-                    padding: '13px',
-                    fontSize: '0.96rem',
-                    fontWeight: 700,
-                    background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '12px',
+                    padding: '11px 18px',
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    background: '#2563eb',
+                    color: '#ffffff',
+                    border: '1px solid #1d4ed8',
+                    borderRadius: '8px',
                     cursor: loading ? 'not-allowed' : 'pointer',
-                    boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                     opacity: loading ? 0.7 : 1,
-                    transition: 'opacity 0.2s',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '8px',
+                    margin: '16px 0 0',
                   }}
+                  onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = '#1d4ed8'; }}
+                  onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = '#2563eb'; }}
                 >
-                  {loading ? 'Sending OTP...' : 'Send OTP Verification ✉️'}
+                  {loading ? 'Sending OTP...' : 'Send OTP Verification'}
                 </button>
               </form>
             </div>
@@ -402,24 +407,25 @@ const Register = () => {
                   disabled={loading || otp.length < 6}
                   style={{
                     width: '100%',
-                    padding: '13px',
-                    fontSize: '0.96rem',
-                    fontWeight: 700,
-                    background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '12px',
+                    padding: '11px 18px',
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    background: '#2563eb',
+                    color: '#ffffff',
+                    border: '1px solid #1d4ed8',
+                    borderRadius: '8px',
                     cursor: loading || otp.length < 6 ? 'not-allowed' : 'pointer',
-                    boxShadow: '0 4px 14px rgba(96,165,250,0.3)',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                     opacity: loading || otp.length < 6 ? 0.6 : 1,
-                    transition: 'opacity 0.2s',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '8px',
+                    margin: '16px 0 0',
                   }}
+                  onMouseEnter={(e) => { if (!loading && otp.length === 6) e.currentTarget.style.background = '#1d4ed8'; }}
+                  onMouseLeave={(e) => { if (!loading && otp.length === 6) e.currentTarget.style.background = '#2563eb'; }}
                 >
-                  {loading ? 'Verifying...' : 'Verify & Create Account 🚀'}
+                  {loading ? 'Verifying...' : 'Verify & Create Account'}
                 </button>
 
                 <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem' }}>

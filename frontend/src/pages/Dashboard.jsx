@@ -64,7 +64,7 @@ const Dashboard = () => {
       <div className="hero-section">
         <h1>Welcome to Student Startup Hub</h1>
         <p>Discover, share, and collaborate on innovative startup ideas</p>
-        <Link to="/submit-idea" className="cta-button">🚀 Submit your idea</Link>
+        <Link to="/submit-idea" className="cta-button">+ Submit Idea</Link>
       </div>
       <div className="container">
         <div className="guidance-section">
@@ -147,11 +147,11 @@ const Dashboard = () => {
                         to={`/messages?partnerId=${idea.createdBy?._id || idea.createdBy}&ideaId=${idea._id}`}
                         title={`Chat directly with ${idea.createdBy?.name || 'the founder'}`}
                         style={{
-                          background: '#e6f9f0',
-                          color: '#059669',
-                          border: '1px solid rgba(5, 150, 105, 0.25)',
-                          padding: '8px 18px',
-                          borderRadius: '50px',
+                          background: '#ecfdf5',
+                          color: '#047857',
+                          border: '1px solid #a7f3d0',
+                          padding: '8px 14px',
+                          borderRadius: '8px',
                           fontSize: '0.85rem',
                           fontWeight: 600,
                           textDecoration: 'none',
@@ -159,12 +159,13 @@ const Dashboard = () => {
                           alignItems: 'center',
                           gap: '6px',
                           whiteSpace: 'nowrap',
-                          transition: 'all 0.2s',
+                          transition: 'all 0.15s',
+                          boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
                         }}
-                        onMouseEnter={(e) => { e.currentTarget.style.background = '#d1f4e4'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.background = '#e6f9f0'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = '#d1fae5'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = '#ecfdf5'; }}
                       >
-                        ● Chat
+                        Chat
                       </Link>
                     )}
                   </div>
