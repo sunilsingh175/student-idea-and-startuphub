@@ -34,7 +34,15 @@ const Register = () => {
       setSuccessMsg(res.data.msg || 'OTP sent successfully!');
       setStep(2); // Move to OTP step
     } catch (err) {
-      setErrorMsg(err.response?.data?.msg || 'Could not send verification OTP. Please try again.');
+      console.error('Registration OTP error:', err);
+      const serverMsg =
+        err.response?.data?.msg ||
+        err.response?.data?.error ||
+        (typeof err.response?.data === 'string' && !err.response.data.includes('<!DOCTYPE') ? err.response.data : null) ||
+        (err.response?.status === 404 ? 'Service endpoint not ready. Please try again in a few moments.' : null) ||
+        err.message ||
+        'Could not send verification OTP. Please try again.';
+      setErrorMsg(serverMsg);
     } finally {
       setLoading(false);
     }

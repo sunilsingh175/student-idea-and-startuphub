@@ -24,12 +24,32 @@ app.use(async (req, res, next) => {
   }
 });
 
-// Define Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/ideas', require('./routes/ideaRoutes'));
-app.use('/api/chat', require('./routes/chatRoutes'));
-app.use('/api/messages', require('./routes/messageRoutes'));
-app.use('/api/contact', require('./routes/contactRoutes'));
+// Healthcheck route
+app.get(['/api/health', '/health', '/api', '/'], (req, res) => {
+  res.json({ status: 'ok', service: 'student-startup-hub-backend' });
+});
+
+// Define Routes (mount under both '/api/...' and '/...' to support all proxy/rewrite setups)
+const authRoutes = require('./routes/authRoutes');
+const ideaRoutes = require('./routes/ideaRoutes');
+const chatRoutes = require('./routes/chatRoutes');
+const messageRoutes = require('./routes/messageRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+
+app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
+
+app.use('/api/ideas', ideaRoutes);
+app.use('/ideas', ideaRoutes);
+
+app.use('/api/chat', chatRoutes);
+app.use('/chat', chatRoutes);
+
+app.use('/api/messages', messageRoutes);
+app.use('/messages', messageRoutes);
+
+app.use('/api/contact', contactRoutes);
+app.use('/contact', contactRoutes);
 
 const PORT = process.env.PORT || 5000;
 
