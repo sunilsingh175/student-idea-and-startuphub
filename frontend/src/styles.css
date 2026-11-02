@@ -139,16 +139,10 @@ nav button.nav-logout-btn:hover {
   transform: translateY(-1px);
 }
 
-/* ─── Forms (Login / Register / SubmitIdea) ────────────────────────────────── */
+/* ─── Forms ────────────────────────────────────────────────────────────────── */
 form {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 36px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  max-width: 440px;
-  margin: 20px auto;
   box-sizing: border-box;
+  width: 100%;
 }
 
 input, select, textarea {

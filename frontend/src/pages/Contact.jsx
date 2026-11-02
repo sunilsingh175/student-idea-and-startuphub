@@ -35,8 +35,10 @@ const Contact = () => {
         marginBottom: '32px',
         position: 'relative',
         overflow: 'hidden',
-        maxWidth: '680px',
-        margin: '0 auto 32px',
+        maxWidth: '580px',
+        margin: '0 auto 28px',
+        boxSizing: 'border-box',
+        width: '100%',
       }}>
         <div style={{
           position: 'absolute', top: '-60px', right: '-60px',
@@ -70,13 +72,15 @@ const Contact = () => {
       </div>
 
       {/* Centered Form Card */}
-      <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '580px', margin: '0 auto', width: '100%' }}>
         <div style={{
           background: '#ffffff',
           border: '1px solid #e8e3d8',
           borderRadius: '16px',
           padding: '36px 32px',
           boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+          width: '100%',
+          boxSizing: 'border-box',
         }}>
           <h2 style={{ margin: '0 0 6px', color: '#111827', fontSize: '1.25rem', fontWeight: 700 }}>
             Send us a Message
@@ -116,7 +120,19 @@ const Contact = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ margin: 0, padding: 0, background: 'transparent', border: 'none', boxShadow: 'none' }}>
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                margin: 0,
+                padding: 0,
+                background: 'transparent',
+                border: 'none',
+                boxShadow: 'none',
+                width: '100%',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
+              }}
+            >
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                 <div>
                   <label style={{ display: 'block', fontWeight: 700, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
