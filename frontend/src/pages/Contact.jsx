@@ -25,124 +25,78 @@ const Contact = () => {
   };
 
   return (
-    <div className="page-container" style={{ minHeight: '100vh', paddingBottom: '40px' }}>
+    <div className="container" style={{ minHeight: 'calc(100vh - 140px)', padding: '40px 20px 60px' }}>
       {/* Hero Section */}
       <div style={{
         background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
-        borderRadius: '20px',
-        padding: '52px 40px',
+        borderRadius: '16px',
+        padding: '44px 32px',
         textAlign: 'center',
-        marginBottom: '36px',
+        marginBottom: '32px',
         position: 'relative',
         overflow: 'hidden',
+        maxWidth: '680px',
+        margin: '0 auto 32px',
       }}>
         <div style={{
           position: 'absolute', top: '-60px', right: '-60px',
-          width: '220px', height: '220px',
+          width: '200px', height: '200px',
           background: 'rgba(255,255,255,0.08)',
           borderRadius: '50%',
         }} />
         <div style={{
           position: 'absolute', bottom: '-40px', left: '-40px',
-          width: '160px', height: '160px',
+          width: '140px', height: '140px',
           background: 'rgba(255,255,255,0.06)',
           borderRadius: '50%',
         }} />
         <div style={{
-          width: '64px', height: '64px',
+          width: '56px', height: '56px',
           background: 'rgba(255,255,255,0.2)',
-          borderRadius: '18px',
+          borderRadius: '16px',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '30px',
-          margin: '0 auto 18px',
+          fontSize: '26px',
+          margin: '0 auto 14px',
           backdropFilter: 'blur(8px)',
         }}>
           📬
         </div>
-        <h1 style={{ margin: '0 0 10px', color: '#fff', fontSize: '2rem', fontWeight: 800 }}>
+        <h1 style={{ margin: '0 0 8px', color: '#fff', fontSize: '1.85rem', fontWeight: 800 }}>
           Contact & Feedback
         </h1>
-        <p style={{ margin: '0 auto', color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', maxWidth: '480px' }}>
-          We'd love to hear from you! Share your thoughts, suggestions, or questions with the StudentIdea team.
+        <p style={{ margin: '0 auto', color: 'rgba(255,255,255,0.9)', fontSize: '0.98rem', maxWidth: '440px', lineHeight: 1.5 }}>
+          Have questions, suggestions, or feedback? Send us a message and it will go directly to our email.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '24px', alignItems: 'start' }}>
-
-        {/* Info Cards */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {[
-            { icon: '📧', title: 'Email Us', desc: 'startuphub695@gmail.com', sub: 'We reply within 24 hours' },
-            { icon: '💡', title: 'Share Ideas', desc: 'Feature Requests', sub: 'Help us improve the platform' },
-            { icon: '🐛', title: 'Report Issues', desc: 'Bug Reports', sub: 'Found a bug? Let us know' },
-            { icon: '🤝', title: 'Collaborate', desc: 'Partnerships', sub: 'Mentors, investors & more' },
-          ].map((item) => (
-            <div
-              key={item.title}
-              style={{
-                background: '#fff',
-                border: '1px solid #e8e3d8',
-                borderRadius: '14px',
-                padding: '18px 20px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                cursor: 'default',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.08)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
-              }}
-            >
-              <div style={{
-                width: '44px', height: '44px', minWidth: '44px',
-                background: 'linear-gradient(135deg, #eff6ff, #dbeafe)',
-                borderRadius: '12px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '20px',
-              }}>{item.icon}</div>
-              <div>
-                <div style={{ fontWeight: 700, color: '#111827', fontSize: '0.9rem' }}>{item.title}</div>
-                <div style={{ color: '#3b82f6', fontWeight: 600, fontSize: '0.85rem' }}>{item.desc}</div>
-                <div style={{ color: '#9ca3af', fontSize: '0.78rem', marginTop: '2px' }}>{item.sub}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Form Card */}
+      {/* Centered Form Card */}
+      <div style={{ maxWidth: '680px', margin: '0 auto' }}>
         <div style={{
           background: '#ffffff',
           border: '1px solid #e8e3d8',
-          borderRadius: '20px',
+          borderRadius: '16px',
           padding: '36px 32px',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
         }}>
-          <h2 style={{ margin: '0 0 6px', color: '#111827', fontSize: '1.3rem', fontWeight: 700 }}>
+          <h2 style={{ margin: '0 0 6px', color: '#111827', fontSize: '1.25rem', fontWeight: 700 }}>
             Send us a Message
           </h2>
-          <p style={{ margin: '0 0 28px', color: '#6b7280', fontSize: '0.9rem' }}>
-            Fill in the form below and we'll get back to you shortly.
+          <p style={{ margin: '0 0 24px', color: '#6b7280', fontSize: '0.88rem' }}>
+            Fill in the details below. We'll get back to you at your email.
           </p>
 
           {status === 'success' ? (
             <div style={{
-              background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
+              background: '#f0fdf4',
               border: '1px solid #bbf7d0',
-              borderRadius: '14px',
-              padding: '32px',
+              borderRadius: '12px',
+              padding: '32px 24px',
               textAlign: 'center',
             }}>
-              <div style={{ fontSize: '52px', marginBottom: '12px' }}>✅</div>
-              <h3 style={{ margin: '0 0 8px', color: '#15803d', fontWeight: 700 }}>Message Sent!</h3>
-              <p style={{ margin: '0 0 20px', color: '#166534', fontSize: '0.95rem' }}>
-                Thank you for your feedback! We'll reply to your email soon.
+              <div style={{ fontSize: '44px', marginBottom: '10px' }}>✅</div>
+              <h3 style={{ margin: '0 0 6px', color: '#15803d', fontWeight: 700 }}>Message Sent!</h3>
+              <p style={{ margin: '0 0 20px', color: '#166534', fontSize: '0.92rem' }}>
+                Thank you for your feedback! We will review your message shortly.
               </p>
               <button
                 onClick={() => setStatus('idle')}
@@ -162,10 +116,10 @@ const Contact = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ margin: 0, padding: 0, background: 'transparent', border: 'none', boxShadow: 'none' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                 <div>
-                  <label style={{ display: 'block', fontWeight: 600, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '6px' }}>
+                  <label style={{ display: 'block', fontWeight: 700, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
                     YOUR NAME *
                   </label>
                   <input
@@ -176,17 +130,15 @@ const Contact = () => {
                     required
                     placeholder="John Doe"
                     style={{
-                      width: '100%', padding: '11px 14px', borderRadius: '10px',
-                      border: '1.5px solid #e8e3d8', background: '#fafaf8',
+                      width: '100%', padding: '10px 12px', borderRadius: '8px',
+                      border: '1px solid #d1d5db', background: '#ffffff',
                       fontSize: '0.9rem', color: '#111827', outline: 'none',
-                      transition: 'border-color 0.2s', boxSizing: 'border-box',
+                      boxSizing: 'border-box', margin: 0,
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#93c5fd'}
-                    onBlur={(e) => e.target.style.borderColor = '#e8e3d8'}
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontWeight: 600, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '6px' }}>
+                  <label style={{ display: 'block', fontWeight: 700, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
                     YOUR EMAIL *
                   </label>
                   <input
@@ -197,19 +149,17 @@ const Contact = () => {
                     required
                     placeholder="you@example.com"
                     style={{
-                      width: '100%', padding: '11px 14px', borderRadius: '10px',
-                      border: '1.5px solid #e8e3d8', background: '#fafaf8',
+                      width: '100%', padding: '10px 12px', borderRadius: '8px',
+                      border: '1px solid #d1d5db', background: '#ffffff',
                       fontSize: '0.9rem', color: '#111827', outline: 'none',
-                      transition: 'border-color 0.2s', boxSizing: 'border-box',
+                      boxSizing: 'border-box', margin: 0,
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#93c5fd'}
-                    onBlur={(e) => e.target.style.borderColor = '#e8e3d8'}
                   />
                 </div>
               </div>
 
               <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontWeight: 600, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontWeight: 700, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
                   SUBJECT (OPTIONAL)
                 </label>
                 <input
@@ -217,20 +167,18 @@ const Contact = () => {
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
-                  placeholder="e.g. Feature Request, Bug Report, General Feedback..."
+                  placeholder="e.g. Feature Suggestion, Bug Report..."
                   style={{
-                    width: '100%', padding: '11px 14px', borderRadius: '10px',
-                    border: '1.5px solid #e8e3d8', background: '#fafaf8',
+                    width: '100%', padding: '10px 12px', borderRadius: '8px',
+                    border: '1px solid #d1d5db', background: '#ffffff',
                     fontSize: '0.9rem', color: '#111827', outline: 'none',
-                    transition: 'border-color 0.2s', boxSizing: 'border-box',
+                    boxSizing: 'border-box', margin: 0,
                   }}
-                  onFocus={(e) => e.target.style.borderColor = '#93c5fd'}
-                  onBlur={(e) => e.target.style.borderColor = '#e8e3d8'}
                 />
               </div>
 
-              <div style={{ marginBottom: '22px' }}>
-                <label style={{ display: 'block', fontWeight: 600, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '6px' }}>
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{ display: 'block', fontWeight: 700, fontSize: '0.75rem', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
                   MESSAGE *
                 </label>
                 <textarea
@@ -238,25 +186,23 @@ const Contact = () => {
                   value={form.message}
                   onChange={handleChange}
                   required
-                  rows={6}
-                  placeholder="Tell us what's on your mind..."
+                  rows={5}
+                  placeholder="Share your feedback or message here..."
                   style={{
-                    width: '100%', padding: '11px 14px', borderRadius: '10px',
-                    border: '1.5px solid #e8e3d8', background: '#fafaf8',
+                    width: '100%', padding: '10px 12px', borderRadius: '8px',
+                    border: '1px solid #d1d5db', background: '#ffffff',
                     fontSize: '0.9rem', color: '#111827', outline: 'none',
-                    transition: 'border-color 0.2s', resize: 'vertical',
-                    fontFamily: 'inherit', lineHeight: '1.6', boxSizing: 'border-box',
+                    resize: 'vertical', fontFamily: 'inherit', lineHeight: '1.6',
+                    boxSizing: 'border-box', margin: 0,
                   }}
-                  onFocus={(e) => e.target.style.borderColor = '#93c5fd'}
-                  onBlur={(e) => e.target.style.borderColor = '#e8e3d8'}
                 />
               </div>
 
               {status === 'error' && (
                 <div style={{
                   background: '#fef2f2', border: '1px solid #fecaca',
-                  borderRadius: '10px', padding: '12px 16px',
-                  color: '#dc2626', fontSize: '0.88rem', marginBottom: '16px',
+                  borderRadius: '8px', padding: '10px 14px',
+                  color: '#dc2626', fontSize: '0.86rem', marginBottom: '16px',
                 }}>
                   ⚠️ {errorMsg}
                 </div>
@@ -281,6 +227,7 @@ const Contact = () => {
                   justifyContent: 'center',
                   gap: '8px',
                   boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                  margin: 0,
                 }}
                 onMouseEnter={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#1d4ed8'; }}
                 onMouseLeave={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#2563eb'; }}
